@@ -22,19 +22,16 @@ class App extends Component {
   handleClick = e => {
     let option =
       e.target.parentElement.previousElementSibling.children[0].value;
-    //debugger
 
     switch (option) {
       case "all":
         this.setState({ hogCards: hogs.map(hog => <Hog hog={hog} />) });
         break;
       case "filtergrease":
-        //debugger
         let sortedHogs = hogs.filter(hog => hog.greased === true);
         this.setState({ hogCards: sortedHogs.map(hog => <Hog hog={hog} />) });
         break;
       case "sortname":
-        //debugger
         let namedHogs = hogs.sort(function(hog1, hog2) {
           if (hog1.name < hog2.name) return -1;
           if (hog1.name > hog2.name) return 1;
@@ -43,7 +40,6 @@ class App extends Component {
         this.setState({ hogCards: namedHogs.map(hog => <Hog hog={hog} />) });
         break;
       case "sortweight":
-        //debugger
         let weightedHogs = hogs.sort(function(hog1, hog2) {
           if (
             hog1[
@@ -73,10 +69,6 @@ class App extends Component {
   };
 
   render() {
-    //debugger
-    //const hogCards =
-    //debugger
-
     return (
       <div className="App">
         <Nav />

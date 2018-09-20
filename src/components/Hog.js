@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-//import imgs from '../hog-imgs/'
+
 export default class Hog extends Component {
   constructor() {
     super();
@@ -11,27 +11,16 @@ export default class Hog extends Component {
   }
 
   handleClick = e => {
-    //debugger
     this.state.toggle === "none"
       ? this.setState({ toggle: "" })
       : this.setState({ toggle: "none" });
   };
 
   render() {
-    // const {
-    //   someProp,
-    // } = this.props
-
     const graphImage = require("../hog-imgs/" +
       this.props.hog.name.toLowerCase().replace(/ /g, "_") +
       ".jpg");
-    // const tableImage = require('./table-' + anyVariable2 + '.png')
 
-    // return (
-    // <img src={graphImage}/>
-    // )
-
-    //debugger
     return (
       <div className="ui card eight wide column">
         <div className="image">
@@ -43,6 +32,13 @@ export default class Hog extends Component {
             <span className="specialty" style={{ display: this.state.toggle }}>
               {this.props.hog.specialty}
             </span>
+            <div className="weight" style={{ display: this.state.toggle }}>
+              {
+                this.props.hog[
+                  "weight as a ratio of hog to LG - 24.7 Cu. Ft. French Door Refrigerator with Thru-the-Door Ice and Water"
+                ]
+              }
+            </div>
           </div>
         </div>
       </div>
